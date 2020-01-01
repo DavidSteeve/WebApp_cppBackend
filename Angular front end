@@ -1,0 +1,156 @@
+<-- in list-heros.component.html-->
+<div style="border: 5px solid #f28282;padding: 32px;border-radius: 36px;font-size: 14px;">
+  <div class="col-xs-12 col-ls-12 col-ms-12 headtext">World of Super Heros</div>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input  [(ngModel)]="searchText" matInput placeholder="Search Heros..." >
+  </mat-form-field> 
+ <div class="panel panel-primary panel" *ngFor="let hero of heros | searchHeros : searchText">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="background: beige;padding: 8px;border-radius: 17px;">{{hero.name}}</h3>
+    </div>
+    <div class="panel-body">
+  
+      <div class="col-xs-12 col-ls-12 col-ms-12">
+  
+        <div class="row vertical-align" style="padding: 0px 0px 0px 17px;border-radius: 17px;">
+  
+          <div >
+            <img class="classImage" [src]="hero.url" />
+          </div>
+          <div class="col-xs-8 col-ls-8 col-ms-8" style="padding: 0px 0px 0px 31px;">
+  
+            <div class="row">
+              <div class="col-xs-6">
+                Gender : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{hero.gender}}
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                <td>intelligence :&nbsp;&nbsp;&nbsp;&nbsp;  {{hero.intelligence}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.intelligence != 100">&nbsp;&nbsp;</span> </td>                                 
+                <td *ngIf="hero.intelligence > 0"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 10"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 20"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 30"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 40"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 50"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 60"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 70"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 80"><div class="intelligence"></div></td>
+                <td *ngIf="hero.intelligence > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                  <td>strength :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{hero.strength}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.strength != 100">&nbsp;&nbsp;</span></td> 
+                  <td *ngIf="hero.strength > 0"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 10"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 20"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 30"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 40"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 50"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 60"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 70"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 80"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.strength > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                  <td>speed :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{hero.speed}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.intelligence != 100">&nbsp;&nbsp;</span></td>
+                  <td *ngIf="hero.speed > 0"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 10"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 20"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 30"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 40"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 50"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 60"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 70"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 80"><div class="intelligence"></div></td>
+                <td *ngIf="hero.speed > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+               
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                  <td>durability: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{hero.durability}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.durability != 100">&nbsp;&nbsp;</span></td>
+                  <td *ngIf="hero.durability > 0"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 10"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 20"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 30"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 40"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 50"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 60"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 70"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 80"><div class="intelligence"></div></td>
+                <td *ngIf="hero.durability > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                  <td> power :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{hero.power}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.power != 100">&nbsp;&nbsp;</span></td>
+                  <td *ngIf="hero.power > 0"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 10"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 20"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 30"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 40"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 50"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 60"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 70"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 80"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.power > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <tr>
+                  <td>combat :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{hero.combat}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="hero.combat != 100">&nbsp;&nbsp;</span></td>
+                  <td *ngIf="hero.combat > 0"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 10"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 20"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 30"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 40"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 50"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 60"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 70"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 80"><div class="intelligence"></div></td>
+                  <td *ngIf="hero.combat > 90"><div class="intelligence"></div></td>
+              </tr>
+              </div>
+              <div class="col-xs-6">
+               
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
