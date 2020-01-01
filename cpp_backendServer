@@ -1,0 +1,59 @@
+// Test.cpp : Defines the entry point for the console application.
+//
+// acting as cgi - requires liphttpd package to host
+#include "WinHttpClient.h"
+#include "iostream"
+#include<conio.h>
+
+string finaljson = "";
+int _tmain(int /*argc*/, _TCHAR** /*argv*/)
+{
+	const string c_ContentHeader = "Content-type: text/htmlAccess - Control - Allow - Origin: *Access-Control-Allow-Methods: GET,POST,OPTIONSAccess-Control-Allow-Headers: X-Requested-With,\n\n";
+	std::string stringvalue;
+	int n = 25;
+	int heros[] = { 1,2,18,23,30,69,99,142,148,149,172,225,245,263,280,289,299,308,322,341,346,352,370,374,389,476,561,606,620,644,684 ,697};
+	for (int i = 1; i <= n; i++)
+	{
+		string url = "https://www.superheroapi.com/api.php/1031220097210379/";
+		string id = to_string(heros[i-1]);
+		string query = url + id;
+		std::wstring wquery(query.length(), L' ');	// Make room for characters
+
+		// Copy string to wstring.
+		std::copy(query.begin(), query.end(), wquery.begin());
+		WinHttpClient client(wquery);
+		client.SendHttpRequest();
+		wstring httpResponseHeader = client.GetResponseHeader();
+		wstring httpResponseContent = client.GetResponseContent();
+		string tempjson = std::string(httpResponseContent.begin(), httpResponseContent.end());
+		std::string toReplace1(",\"powerstats\":{");
+		size_t pos = tempjson.find(toReplace1);
+		tempjson.replace(pos, toReplace1.length(), ",");
+		std::string toReplace2("},\"biography\":{");
+		size_t pos2 = tempjson.find(toReplace2);
+		tempjson.replace(pos2, toReplace2.length(), ",");
+		std::string toReplace3("},\"appearance\":{");
+		size_t pos3 = tempjson.find(toReplace3);
+		tempjson.replace(pos3, toReplace3.length(), ",");
+		std::string toReplace4("},\"work\":{");
+		size_t pos4 = tempjson.find(toReplace4);
+		tempjson.replace(pos4, toReplace4.length(), ",");
+		std::string toReplace5("},\"connections\":{");
+		size_t pos5 = tempjson.find(toReplace5);
+		tempjson.replace(pos5, toReplace5.length(), ",");
+		std::string toReplace6("},\"image\":{");
+		size_t pos6 = tempjson.find(toReplace6);
+		tempjson.replace(pos6, toReplace6.length(), ",");
+		std::string toReplace7(".jpg\"}");
+		size_t pos7 = tempjson.find(toReplace7);
+		tempjson.replace(pos7, toReplace7.length(), ".jpg\"");
+	
+		if(n != 1 && i > 1)
+			stringvalue = stringvalue + ",";
+
+		stringvalue = stringvalue + tempjson;
+	}
+	cout << c_ContentHeader << "[" << stringvalue << "]" << endl;	
+	
+}
+	 
